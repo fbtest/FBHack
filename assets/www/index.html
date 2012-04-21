@@ -3,20 +3,98 @@
 	<head> 
 	<title>Assassins: The ARG</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 </head> 
+
 <body> 
 
-<div data-role="page">
+<!-- Facebook Integration using Javascript SDK -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 'YOUR_APP_ID', // App ID
+      channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+<!-- Main Page -->
+<div data-role="page" id="main">
+	
+	<div id="background">
+		<img src="images/bg-normal.png" class="stretch">
+	</div>
 
 <!--	<div data-role="header">
 		<h1>Assassins: The ARG</h1>
-	</div><!-- /header --> 
+	</div><!-- /header -->
 
-	<div data-role="content">	
-		<p>Hello world</p>		
+	<div data-role="content" style="text-align: center;">	
+		<div class="logo">
+			<img src="images/logo.png" class="center" style="margin-bottom: 75px;">
+			<a href="#launch"><img src="images/fblogin.png" class="center"></a>
+		</div>
+		
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<!-- Game Page -->
+<div data-role="page" id="launch">
+	
+	<div id="background">
+		<img src="images/bg-normal.png" class="stretch">
+	</div>
+
+<!--	<div data-role="header">
+		<h1>Assassins: The ARG</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" style="text-align: center;">	
+		<div class="logo">
+			<img src="images/logo.png" class="center" style="margin-bottom: 60px;">
+			<div data-role="controlgroup">
+				<a href="#" data-role="button">Current Game</a>
+				<a href="#start" data-role="button">Start Game</a>
+				<a href="#" data-role="button">Join Game</a>
+				<a href="#main" data-role="button">Log Out</a>
+			</div>
+		</div>
+		
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<!-- Start Game Page -->
+<div data-role="page" id="start">
+
+	<div id="background">
+		<img src="images/bg-normal.png" class="stretch">
+	</div>
+
+	<div data-role="header">
+	</div><!-- /header -->
+
+	<div data-role="content" class="contents">
+		<h1>New Game Setup</h1>
+		
+		
 	</div><!-- /content -->
 
 </div><!-- /page -->
